@@ -1,0 +1,29 @@
+[
+  
+  { "id": 1,  "nombre": "Smartphone X1",      "precio": 799,  "descripcion": "Último smartphone con gran cámara",      "categoria": "electronics",     "imagen": "https://via.placeholder.com/300x200?text=Phone" },
+  { "id": 2,  "nombre": "Laptop Pro 14",    "precio": 1299, "descripcion": "Portátil de alto rendimiento",            "categoria": "electronics",     "imagen": "https://via.placeholder.com/300x200?text=Laptop" },
+  { "id": 3,  "nombre": "Auriculares BT",     "precio": 199,  "descripcion": "Noise‑cancelling inalámbricos",           "categoria": "electronics",     "imagen": "https://via.placeholder.com/300x200?text=Headphones" },
+  { "id": 4,  "nombre": "Smartwatch S2",      "precio": 299,  "descripcion": "Reloj inteligente deportivo",             "categoria": "electronics",     "imagen": "https://via.placeholder.com/300x200?text=Watch" },
+  { "id": 5,  "nombre": "Altavoz BT",         "precio": 149,  "descripcion": "Altavoz portátil bluetooth",              "categoria": "electronics",     "imagen": "https://via.placeholder.com/300x200?text=Speaker" },
+
+  
+  { "id": 6,  "nombre": "Anillo de oro",      "precio": 499,  "descripcion": "Elegante anillo 14 K",                    "categoria": "jewelry",         "imagen": "https://via.placeholder.com/300x200?text=Ring" },
+  { "id": 7,  "nombre": "Collar diamantes",   "precio": 1999, "descripcion": "Collar con diamantes naturales",          "categoria": "jewelry",         "imagen": "https://via.placeholder.com/300x200?text=Necklace" },
+  { "id": 8,  "nombre": "Pulsera plata",      "precio": 299,  "descripcion": "Pulsera de plata 925",                    "categoria": "jewelry",         "imagen": "https://via.placeholder.com/300x200?text=Bracelet" },
+  { "id": 9,  "nombre": "Pendientes perla",   "precio": 399,  "descripcion": "Pendientes de perla natural",             "categoria": "jewelry",         "imagen": "https://via.placeholder.com/300x200?text=Earrings" },
+  { "id": 10, "nombre": "Reloj clásico",      "precio": 899,  "descripcion": "Reloj de pulsera premium",                 "categoria": "jewelry",         "imagen": "https://via.placeholder.com/300x200?text=Watch" },
+
+  
+  { "id": 11, "nombre": "Camiseta básica",    "precio": 49,   "descripcion": "Camiseta de algodón",                      "categoria": "mens clothing",   "imagen": "https://via.placeholder.com/300x200?text=T-Shirt" },
+  { "id": 12, "nombre": "Jeans slim",         "precio": 79,   "descripcion": "Vaqueros corte slim",                      "categoria": "mens clothing",   "imagen": "https://via.placeholder.com/300x200?text=Jeans" },
+  { "id": 13, "nombre": "Chaqueta sport",     "precio": 149,  "descripcion": "Chaqueta ligera",                          "categoria": "mens clothing",   "imagen": "https://via.placeholder.com/300x200?text=Jacket" },
+  { "id": 14, "nombre": "Zapatillas runner",  "precio": 99,   "descripcion": "Zapatillas cómodas",                       "categoria": "mens clothing",   "imagen": "https://via.placeholder.com/300x200?text=Shoes" },
+  { "id": 15, "nombre": "Cinturón cuero",     "precio": 19,   "descripcion": "Cinturón 100 % cuero",                     "categoria": "mens clothing",   "imagen": "https://via.placeholder.com/300x200?text=Belt" },
+
+
+  { "id": 16, "nombre": "Vestido verano",     "precio": 129,  "descripcion": "Vestido fresco de verano",                "categoria": "women clothing",  "imagen": "https://via.placeholder.com/300x200?text=Dress" },
+  { "id": 17, "nombre": "Blusa seda",         "precio": 59,   "descripcion": "Blusa elegante de seda",                   "categoria": "women clothing",  "imagen": "https://via.placeholder.com/300x200?text=Blouse" },
+  { "id": 18, "nombre": "Falda plisada",      "precio": 69,   "descripcion": "Falda midi plisada",                       "categoria": "women clothing",  "imagen": "https://via.placeholder.com/300x200?text=Skirt" },
+  { "id": 19, "nombre": "Botas piel",         "precio": 149,  "descripcion": "Botas altas de piel",                      "categoria": "women clothing",  "imagen": "https://via.placeholder.com/300x200?text=Boots" },
+  { "id": 20, "nombre": "Bolso shopper",      "precio": 199,  "descripcion": "Bolso amplio tipo shopper",                "categoria": "women clothing",  "imagen": "https://via.placeholder.com/300x200?text=Bag" }
+]

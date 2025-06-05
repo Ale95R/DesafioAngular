@@ -1,12 +1,31 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Navbar } from './navbar/navbar';
+import { Catalogo } from './catalogo/catalogo';
+import { Carrito } from './servicios/carrito';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
+  imports: [
+    CommonModule,
+    FormsModule,  
+    Navbar,
+    Catalogo       
+  ]
 })
 export class App {
-  protected title = 'DesafioAngular';
+  mostrarCarrito = false;
+  constructor(public carrito: Carrito) {}
+
+  @HostListener('document:toggleCart') toggleCart() { this.mostrarCarrito = !this.mostrarCarrito; }
+
+  pagar() {
+    alert('Pago realizado con éxito. ¡Gracias por tu compra!');
+    this.carrito.limpiar();
+    this.toggleCart();
+  }
 }
