@@ -1,7 +1,4 @@
-import {
-  ApplicationConfig,
-  importProvidersFrom,
-} from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
@@ -17,16 +14,13 @@ import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    /* HttpClient + fetch  ➜  SOLO esta línea  */
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch()),      // 👈   SOLO ESTA LÍNEA
+    importProvidersFrom(FormsModule),    // 👈   y SOLO una vez
 
-    /* Formularios / ngModel */
-    importProvidersFrom(FormsModule),
-
-    /* Resto de providers que ya tenías */
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
   ],
 };
+
