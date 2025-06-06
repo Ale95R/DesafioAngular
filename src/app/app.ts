@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Navbar } from './navbar/navbar';
-import { Catalogo } from './catalogo/catalogo';
+import { Catalogo } from './catalogo/catalogo.component';
 import { Carrito } from './servicios/carrito';
 
 @Component({
@@ -10,18 +10,15 @@ import { Carrito } from './servicios/carrito';
   standalone: true,
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  imports: [
-    CommonModule,
-    FormsModule,  
-    Navbar,
-    Catalogo       
-  ]
+  imports: [CommonModule, FormsModule, Navbar, Catalogo],
 })
 export class App {
   mostrarCarrito = false;
   constructor(public carrito: Carrito) {}
 
-  @HostListener('document:toggleCart') toggleCart() { this.mostrarCarrito = !this.mostrarCarrito; }
+  @HostListener('document:toggleCart') toggleCart() {
+    this.mostrarCarrito = !this.mostrarCarrito;
+  }
 
   pagar() {
     alert('Pago realizado con éxito. ¡Gracias por tu compra!');

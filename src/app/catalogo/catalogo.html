@@ -1,1 +1,101 @@
-<p>catalogo works!</p>
+<div class="container py-4 px-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let producto of productosPaginados" class="col mb-4">
+      <div class="card h-100 shadow-sm card-modern d-flex flex-column">
+        <div class="card-img-wrapper">
+          <img
+            [src]="producto.image"
+            class="card-img-top img-fixed"
+            alt="{{ producto.title }}"
+          />
+        </div>
+        <div class="card-body card-body-fixed p-3">
+          <h5 class="card-title d-flex justify-content-between">
+            <span>{{ producto.title }}</span>
+            <span class="text-primary fw-bold">${{ producto.price }}</span>
+          </h5>
+          <p
+            class="card-text text-muted text-ellipsis"
+            style="font-size: 0.9rem"
+          >
+            {{ producto.description }}
+          </p>
+          <div class="d-flex justify-content-between mt-auto pt-2">
+            <button class="btn btn-outline-primary btn-sm">
+              <i class="bi bi-cart-plus me-1"></i> Agregar
+            </button>
+
+            <a
+              class="btn btn-primary btn-sm d-flex align-items-center gap-1"
+              (click)="verDetalles(producto.id)"
+            >
+              <i class="bi bi-eye"></i> Ver más
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="mt-4 d-flex justify-content-center">
+  <ul class="pagination">
+    <!-- Botón anterior -->
+    <li class="page-item" [class.disabled]="paginaActual === 1">
+      <a class="page-link" (click)="cambiarPagina(paginaActual - 1)" href="#"
+        >Anterior</a
+      >
+    </li>
+
+    <!-- Números de página -->
+    <li
+      class="page-item"
+      *ngFor="let pagina of [].constructor(totalPaginas); let i = index"
+      [class.active]="paginaActual === i + 1"
+    >
+      <a class="page-link" (click)="cambiarPagina(i + 1)" href="#"
+        >{{ i + 1 }}</a
+      >
+    </li>
+
+    <!-- Botón siguiente -->
+    <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
+      <a class="page-link" (click)="cambiarPagina(paginaActual + 1)" href="#"
+        >Siguiente</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ productoSeleccionado?.title }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body d-flex flex-column flex-md-row gap-4">
+        <img
+          [src]="productoSeleccionado?.image"
+          alt=""
+          class="img-fluid"
+          style="max-height: 200px"
+        />
+        <div>
+          <p><strong>Precio:</strong> ${{ productoSeleccionado?.price }}</p>
+          <p>
+            <strong>Categoría:</strong> {{ productoSeleccionado?.category }}
+          </p>
+          <p>
+            <strong>Descripción:</strong><br />{{
+            productoSeleccionado?.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
