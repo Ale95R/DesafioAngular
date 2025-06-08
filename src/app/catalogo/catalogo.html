@@ -21,7 +21,10 @@
             {{ producto.description }}
           </p>
           <div class="d-flex justify-content-between mt-auto pt-2">
-            <button class="btn btn-outline-primary btn-sm">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              (click)="agregarAlCarrito(producto)"
+            >
               <i class="bi bi-cart-plus me-1"></i> Agregar
             </button>
 
@@ -40,33 +43,25 @@
 
 <nav class="mt-4 d-flex justify-content-center">
   <ul class="pagination">
-    <!-- Botón anterior -->
     <li class="page-item" [class.disabled]="paginaActual === 1">
-      <a class="page-link" (click)="cambiarPagina(paginaActual - 1)" href="#"
-        >Anterior</a
-      >
+      <a class="page-link" (click)="cambiarPagina(paginaActual - 1)" href="#">Anterior</a>
     </li>
 
-    <!-- Números de página -->
     <li
       class="page-item"
       *ngFor="let pagina of [].constructor(totalPaginas); let i = index"
       [class.active]="paginaActual === i + 1"
     >
-      <a class="page-link" (click)="cambiarPagina(i + 1)" href="#"
-        >{{ i + 1 }}</a
-      >
+      <a class="page-link" (click)="cambiarPagina(i + 1)" href="#">{{ i + 1 }}</a>
     </li>
 
-    <!-- Botón siguiente -->
     <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
-      <a class="page-link" (click)="cambiarPagina(paginaActual + 1)" href="#"
-        >Siguiente</a
-      >
+      <a class="page-link" (click)="cambiarPagina(paginaActual + 1)" href="#">Siguiente</a>
     </li>
   </ul>
 </nav>
 
+<!-- Modal de Detalles -->
 <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -87,13 +82,8 @@
         />
         <div>
           <p><strong>Precio:</strong> ${{ productoSeleccionado?.price }}</p>
-          <p>
-            <strong>Categoría:</strong> {{ productoSeleccionado?.category }}
-          </p>
-          <p>
-            <strong>Descripción:</strong><br />{{
-            productoSeleccionado?.description }}
-          </p>
+          <p><strong>Categoría:</strong> {{ productoSeleccionado?.category }}</p>
+          <p><strong>Descripción:</strong><br />{{ productoSeleccionado?.description }}</p>
         </div>
       </div>
     </div>
