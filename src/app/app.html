@@ -2,7 +2,6 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-5 pt-4">
-
   <!-- ░░ SLIDER ░░ -->
   <div id="slider" class="carousel slide mb-4" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -31,11 +30,11 @@
     </a>
   </div>
 
-  <!-- ░░ CATÁLOGO (filtros + cards) ░░ -->
-  <app-catalogo></app-catalogo>
+  <!-- ░░ CONTENIDO DINÁMICO (rutas) ░░ -->
+  <router-outlet></router-outlet>
 </div>
 
-<!-- ░░ MODAL CARRITO ░░ -->
+<!-- ░░ MODAL CARRITO ░░ -->
 <div class="modal"
      tabindex="-1"
      [ngClass]="{ 'show d-block': mostrarCarrito }"
