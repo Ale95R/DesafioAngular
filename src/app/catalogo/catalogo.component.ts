@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ApiService } from '../servicios/ApiService';
 import { CommonModule } from '@angular/common';
+import { Carrito } from '../servicios/carrito';
+import { Producto } from '../modelos/producto.model';
 
 @Component({
   selector: 'app-catalogo',
-  standalone: true,
+  standalone: true, 
   imports: [CommonModule],
   templateUrl: './catalogo.html',
   styleUrls: ['./catalogo.css'],
 })
 export class Catalogo implements OnInit {
-  productos: any[] = []; // Todos los productos
-  paginaActual: number = 1; // Página actual
-  productosPorPagina: number = 6; // Cantidad por página
+  productos: any[] = [];
+  paginaActual: number = 1;
+  productosPorPagina: number = 6;
   productoSeleccionado: any = null;
 
-  constructor(private apiService: ApiService) {}
+  private apiService = inject(ApiService);
+  private carrito = inject(Carrito);
 
   get productosPaginados(): any[] {
     const inicio = (this.paginaActual - 1) * this.productosPorPagina;
@@ -44,16 +47,26 @@ export class Catalogo implements OnInit {
     this.apiService.getProduct(id).subscribe({
       next: (data) => {
         this.productoSeleccionado = data;
-
-        if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-          const modalElement = document.getElementById('modalProducto');
-          if (modalElement && (window as any).bootstrap?.Modal) {
-            const modal = new (window as any).bootstrap.Modal(modalElement);
-            modal.show();
-          }
+        const modalElement = document.getElementById('modalProducto');
+        if (modalElement && (window as any).bootstrap?.Modal) {
+          const modal = new (window as any).bootstrap.Modal(modalElement);
+          modal.show();
         }
       },
       error: (err) => console.error('Error al obtener producto:', err),
     });
+  }
+
+  agregarAlCarrito(producto: any): void {
+    const prodFormateado: Producto = {
+      id: producto.id,
+      nombre: producto.title, // usa title porque es como viene de la API
+      precio: producto.price,
+      descripcion: producto.description,
+      categoria: producto.category,
+      imagen: producto.image,
+    };
+
+    this.carrito.agregar(prodFormateado);
   }
 }
