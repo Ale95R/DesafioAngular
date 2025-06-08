@@ -1,0 +1,28 @@
+<h3>Carrito de Compra</h3>
+
+<!-- Si el carrito está vacío -->
+<div *ngIf="items.length === 0">
+  <p>El carrito está vacío.</p>
+</div>
+
+<!-- Si el carrito tiene productos -->
+<div *ngIf="items.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.producto.nombre }}</td>
+        <td>{{ item.producto.precio | currency:'USD' }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <h5>Total: ${{ total }}</h5>
+  <button class="btn btn-success" (click)="pagar()">Pagar</button>
+</div>
